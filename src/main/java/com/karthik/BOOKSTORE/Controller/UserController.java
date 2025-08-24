@@ -37,7 +37,7 @@ public class UserController {
         {
             return jwtservice.generatejwttoken(user);
         }
-        else return null;
+        else return "no user found";
     }
 
 }
