@@ -24,10 +24,10 @@ public class AdminControllerBooks {
     @PostMapping("/updatebook")
     public ResponseEntity<Book> updatedetailofbook(@RequestBody Book book)
     {
-        Book updatedbook = bookser.updatebook(book);
-        if(updatedbook!=null)
+        Book updatebook = bookser.updatebook(book);
+        if(updatebook!=null)
         {
-            return new ResponseEntity<>(updatedbook,HttpStatus.FOUND);
+            return new ResponseEntity<>(updatebook,HttpStatus.FOUND);
         }
         else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
