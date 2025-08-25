@@ -1,14 +1,13 @@
 package com.karthik.BOOKSTORE.Model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.karthik.BOOKSTORE.Model.Book;
 
-import java.awt.print.Book;
+
 import java.util.List;
 @Entity
 @Data
@@ -16,8 +15,10 @@ import java.util.List;
 @AllArgsConstructor
 public class Category {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long category_id;
     private String categoryname;
     @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Book> books;
 }

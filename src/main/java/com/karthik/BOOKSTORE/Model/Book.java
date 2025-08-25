@@ -1,15 +1,17 @@
 package com.karthik.BOOKSTORE.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-@Entity
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -22,6 +24,7 @@ public class Book {
     private Date published_date;
     @ManyToOne
     @JoinColumn(name="author_id")
+
     private Author author;
     @ManyToOne
     @JoinColumn(name="category_id")
