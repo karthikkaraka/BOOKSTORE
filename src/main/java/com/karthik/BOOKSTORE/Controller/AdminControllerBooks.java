@@ -49,10 +49,10 @@ public class AdminControllerBooks {
     @PostMapping("/softdelete/{id}")
     public ResponseEntity<Book> softdeletebook(@PathVariable long id)
     {
-        Book deletedbook = bookser.safedelete(id);
-       if(deletedbook!= null)
+        Book deletebook = bookser.safedelete(id);
+       if(deletebook!= null)
        {
-           return new ResponseEntity<>(deletedbook,HttpStatus.OK);
+           return new ResponseEntity<>(deletebook,HttpStatus.OK);
        }
        else{
            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
