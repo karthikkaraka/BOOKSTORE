@@ -23,10 +23,9 @@ public class Book {
     private long ISBN;
     private Date published_date;
     @ManyToOne
-    @JoinColumn(name="author_id")
-
+    @JoinColumn(name="authorid")
     private Author author;
     @ManyToOne
-    @JoinColumn(name="category_id")
+    @JoinColumn(name="categoryid")
     private Category category;
 }
