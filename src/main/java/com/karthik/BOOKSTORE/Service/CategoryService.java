@@ -39,10 +39,10 @@ public class CategoryService {
         if (hasStock) {
             return null;
         }
-        Optional<Category> cate = catrepo.findById(id);
-        if(cate.isPresent())
+        Optional<Category> categ = catrepo.findById(id);
+        if(categ.isPresent())
         {
-           Category originalcate = cate.get();
+           Category originalcate = categ.get();
             catrepo.delete(originalcate);
             return originalcate;
         }
