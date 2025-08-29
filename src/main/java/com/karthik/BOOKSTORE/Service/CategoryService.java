@@ -22,9 +22,9 @@ public class CategoryService {
     }
 
     public Category updateCategory(Category category) {
-        Optional<Category> categ = catrepo.findById(category.getCategoryid());
-        if(categ!= null){
-            Category originalcategory = categ.get();
+        Optional<Category> catego = catrepo.findById(category.getCategoryid());
+        if(catego!= null){
+            Category originalcategory = catego.get();
             originalcategory.setCategoryname(category.getCategoryname());
             return catrepo.save(originalcategory);
         }
