@@ -41,8 +41,8 @@ public class AuthorService {
     public Author deleteauthor(Long id) {
         Optional<Author> authorOpt = authrepo.findById(id);
         if (authorOpt.isPresent()) {
-            Author author = authorOpt.get();
-            List<Book> books = bookrepo.findByAuthor_Authorid(author.getAuthorid());
+            Author authorr = authorOpt.get();
+            List<Book> books = bookrepo.findByAuthor_Authorid(authorr.getAuthorid());
 
 
             boolean hasStock = books.stream().anyMatch(book -> book.getStock() > 0);
@@ -51,8 +51,8 @@ public class AuthorService {
 
                 return null;
             }
-            authrepo.delete(author);
-            return author;
+            authrepo.delete(authorr);
+            return authorr;
         }
         return null;
     }
