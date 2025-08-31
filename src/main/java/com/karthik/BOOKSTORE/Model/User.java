@@ -17,4 +17,6 @@ public class User {
   private String password;
   @Enumerated(EnumType.STRING)
   private Role role;
+  @OneToOne(mappedBy = "user" ,cascade=CascadeType.ALL)
+  private Cart cart;
 }
