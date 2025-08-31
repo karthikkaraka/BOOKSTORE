@@ -1,5 +1,6 @@
 package com.karthik.BOOKSTORE.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,11 +22,9 @@ public class Cart {
     @OneToOne
     @JoinColumn(name="user_id",referencedColumnName = "id")
     private User user;
-    @CreatedDate
-    @Column(updatable = false)
     private Date createdat;
-    @LastModifiedDate
     private Date updatedat;
     @OneToMany(mappedBy = "cart",cascade = CascadeType.ALL,orphanRemoval = true)
+    @JsonIgnore
     private List<CartItems> items;
 }
