@@ -21,6 +21,7 @@ public class User {
   private Role role;
   @OneToOne(mappedBy = "user" ,cascade=CascadeType.ALL)
   @ToString.Exclude
+  @JsonIgnore
   @EqualsAndHashCode.Exclude
   @JsonManagedReference
   private Cart cart;

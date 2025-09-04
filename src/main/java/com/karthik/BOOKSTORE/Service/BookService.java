@@ -21,13 +21,14 @@ public class BookService {
     @Autowired
     CategoryRepo categoryrepo;
     public Book addbook(Book book) {
-        bookrepo.save(book);
+
         Author author = authorrepo.findById(book.getAuthor().getAuthorid())
                 .orElseThrow(() -> new RuntimeException("Author not found"));
         Category category = categoryrepo.findById(book.getCategory().getCategoryid())
                 .orElseThrow(() -> new RuntimeException("Category not found"));
         book.setAuthor(author);
         book.setCategory(category);
+        bookrepo.save(book);
         return book;
     }
 
